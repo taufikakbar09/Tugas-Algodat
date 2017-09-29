@@ -1,7 +1,7 @@
 package ArrayLinierList;
 
 public class Array2D {
-    public static Object[] ChangeLength(Object [] a, int n, int m, int newLength, int newLengthBaru){
+    public static Object[][] ChangeLength(Object [] a, int n, int m, int newLength, int newLengthBaru){
         if(n > newLength){
             throw new IllegalArgumentException("Length is too small");
         }
