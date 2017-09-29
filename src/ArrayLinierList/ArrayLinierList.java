@@ -39,6 +39,87 @@ public class ArrayLinierList implements LinierList {
         
         return -1;
     }
-    public 
-    
+    @Override
+    public Object remove(int index){
+        checkIndex(index);
+        Object removeElement = element[index];
+        for(int i = index + 1; i < size; i++)
+            element[i-1] = element [i];
+        element[--size] = null;
+        return removeElement;
+    }
+    @Override
+    public void add(int index, Object theElement){
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException("Index = " +index+ "size ="+ size);
+        }
+        if(size == element.length){
+            ArrayLinierList x = new ArrayLinierList(size);
+        }
+        if(element.length > size){
+        for(int i = size -1; i >= index; i--){
+                element[i+1] = element[i];
+        }
+        element[index] = theElement;
+        size++;
+        }
+    }
+    @Override
+    public String toString(){
+        StringBuffer s = new StringBuffer("[");
+        for(int i = 0; i< size; i++)
+            if (element[i] == null)
+                s.append("null, ");
+            else
+                s.append(element[i].toString() + ", ");
+        
+        if (size > 0)
+            s.delete(s.length() -2, s.length());
+        
+        s.append("]");
+        
+        return new String(s);
+    }
+    @Override
+    public void increaseSize(){
+        capacity++;
+        Object[] newArray = new Object[capacity];
+        System.arraycopy(element, 0, newArray, 0, element.length);
+        element = newArray;
+    }
+    @Override
+    public void trimToSize(){
+        if (size < capacity) {
+            Object[] newArray = new Object[size];
+            System.arraycopy(element, 0, newArray, 0, size);
+            element = newArray;
+            capacity = size;
+        }
+    }
+    @Override
+    public Object setSize(int newSize){
+        if(size > newSize){
+            int index = size - newSize;
+            Object removeElement = element[index];
+            for(int j=0; j<index; j++){
+                for(int i = index + 1; i < size; i++){
+                    element[i-1] = element[i];
+                }
+                element[--size] = null;
+            }
+            return removeElement;
+        }
+        else{
+            element2 = new Object[newSize];
+            System.arraycopy(element, 0, element2,0, size);
+            element = element2;
+        }
+        return size;
+    }
+    @Override
+    public void changeLength2D(int index, Object obj){
+        if(size <= capacity){
+            
+        }
+    }
 }

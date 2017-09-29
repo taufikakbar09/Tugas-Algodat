@@ -8,4 +8,8 @@ public interface LinierList {
     public Object remove(int index);
     public void add(int index, Object obj);
     public String toString();
+    public void changeLength2D(int index, Object obj);
+    public void increaseSize();
+    public Object setSize(int newSize);
+    public void trimToSize();
 }
