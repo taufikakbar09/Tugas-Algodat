@@ -6,10 +6,17 @@ public class ArrayLinierList implements LinierList {
     protected int capacity;
     int index;
 
-    public ArrayLinierList(int capacity){
-        this.capacity = capacity;
-        element = new Object[capacity];
-        index = 0;
+     public ArrayLinierList (int initialCapacity){
+        if(initialCapacity < 1){
+            System.out.println("Salah !");
+            throw new IllegalArgumentException("panjang array harus lebih dari 1");
+        }
+        
+        element = new Object[initialCapacity];
+        
+        if(initialCapacity == element.length){
+        element = ChangeArrayLength.changeLength1D(element, 2*initialCapacity);
+        }
     }
     public ArrayLinierList(){
         this(10);
@@ -121,5 +128,12 @@ public class ArrayLinierList implements LinierList {
         if(size <= capacity){
             
         }
+    }
+     @Override
+    public Object clear(){
+        for(int i = 0; i<size; i++){
+            element[i] = null;
+        }
+        return element;
     }
 }

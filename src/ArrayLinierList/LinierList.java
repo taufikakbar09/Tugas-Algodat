@@ -12,4 +12,5 @@ public interface LinierList {
     public void increaseSize();
     public Object setSize(int newSize);
     public void trimToSize();
+    public Object clear();
 }

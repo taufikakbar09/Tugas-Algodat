@@ -2,40 +2,68 @@ package ArrayLinierList;
 
 public class Driver {
     public static void main(String[] args) {
-        ArrayLinierList a = new ArrayLinierList();
-        a.add(0, new Integer(4));
-        a.add(0, new Integer(3));
-        a.add(0, new Integer(2));
-        a.add(0, new Integer(1));
-        a.add(0, new Integer(0));
         
-        System.out.println("Banyak data = " +a.size);
-        System.out.println("Banyak kapasitas = " +a.capacity);
-        System.out.println();
+
+          ArrayLinierList a= new ArrayLinierList(9);{
         
-        System.out.println("Data yang masuk :");
-        for(int i = 0; i < a.size(); i++){
-            System.out.println(a.element[i]);
+            a.add(0, "A");
+            a.add(1, "B");
+            a.add(2, "C");
+            a.add(3, "D");
+            a.add(4, "E");
+            a.add(5, "F");
+            a.add(6, "G");
+            a.add(7, "H");
+            a.add(8, "I");
+            a.add(9, "J");
+            System.out.println("Panjang Array Awal untuk soal no 5\t :"+a.element.length);
+            
+            System.out.println("\t\t*Soal nomor 3*");
+            System.out.println();
+            
+            Object [][] Keluarga ={    
+            {"1","Budi","Wirausaha"}, 
+            {"2","Indra","Travel"}, 
+            {"3","Luna","Dokter"},   
+                   
+        };
+        
+        System.out.println("Panjang awal array = ["+Keluarga.length+"]"+"["+Keluarga[0].length+"]");// ukuran array sebelum dirubah
+        
+        Object[][] Change = Array2D.changeLength2D(Keluarga, 3, 4);// untuk mengubah array sebelumnya
+        
+        System.out.println("Panjang array setelah di rubah =  ["+Change.length+"]"+"["+Change[0].length+"]");
+               
+        for(Object[] ganti2 : Change){
+            for(int i = 0; i<Change[0].length; i++){
+                System.out.println(ganti2[i]);
+                
+            }
         }
         
+        System.out.println("\t\t*Soal nomor 5*");
         System.out.println();
-        System.out.println("Panjang Array : "+ a.size());
-        System.out.println("Sebelum di Trim "+a.capacity);
+        
+         //memotong panjang array sesuai dengan array yang terisi
+        a.add(10, "K");
+        a.add(11, "L");
         a.trimToSize();
-        System.out.println("Setelah di Trim "+a.capacity);
-        System.out.println();
-        a.setSize(8);
-        System.out.println("Ukuran element di set menjadi : "+a.element2.length);
+        System.out.println("Panjang Array Setelah di Potong \t :"+a.element.length);
         
+        System.out.println("\t\t*Soal nomor 6*");
         System.out.println();
-        a.remove(1);
-        System.out.println("Isi array setelah index 1 dihapus : ");
-        for(int i = 0; i < a.size(); i++){
-            System.out.println(a.element[i]);
+        
+        //untuk menentukan panjang Array yang dipilih
+        a.setSize(2);
+        System.out.println("Setelah Dilakukan SetSize adalah\t :"+a.toString());
+        
+        System.out.println("\t\t*Soal nomor 8*");
+        //Untuk Menghapus semua Isi Array yang ada 
+        System.out.println();
+        a.clear();
+        System.out.println("Isi array setelah clear \t:"+a.toString());
+        
+        
+            }
         }
-        System.out.println("Panjang array sebelum di Trim : "+ a.capacity);
-        System.out.println("PAnjang array setelah di Trim : "+ a.size);
-        System.out.println("Panjang kapasitas array : "+a.element.length);
-        
-    }
 }
