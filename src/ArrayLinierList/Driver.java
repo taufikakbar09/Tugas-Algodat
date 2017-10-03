@@ -2,7 +2,7 @@ package ArrayLinierList;
 
 public class Driver {
 
-    public static void main(String[] args) throws CloneNotSupportedException {
+    public static void main(String[] args) {
         
 
         ArrayLinierList a= new ArrayLinierList(9);{
