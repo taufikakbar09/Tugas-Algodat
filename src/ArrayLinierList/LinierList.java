@@ -13,4 +13,6 @@ public interface LinierList {
     public Object setSize(int newSize);
     public void trimToSize();
     public Object clear();
+    public void removeRange(int fromIndex, int toIndex);
+    public Object clone(Object[] a);
 }

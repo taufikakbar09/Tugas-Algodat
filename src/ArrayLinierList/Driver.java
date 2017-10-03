@@ -1,10 +1,11 @@
 package ArrayLinierList;
 
 public class Driver {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws CloneNotSupportedException {
         
 
-          ArrayLinierList a= new ArrayLinierList(9);{
+        ArrayLinierList a= new ArrayLinierList(9);{
         
             a.add(0, "A");
             a.add(1, "B");
@@ -16,6 +17,9 @@ public class Driver {
             a.add(7, "H");
             a.add(8, "I");
             a.add(9, "J");
+            
+            Object [] y = new Object[20];
+            
             System.out.println("Panjang Array Awal untuk soal no 5\t :"+a.element.length);
             
             System.out.println("\t\t*Soal nomor 3*");
@@ -26,7 +30,7 @@ public class Driver {
             {"2","Indra","Travel"}, 
             {"3","Luna","Dokter"},   
                    
-        };
+            };
         
         System.out.println("Panjang awal array = ["+Keluarga.length+"]"+"["+Keluarga[0].length+"]");// ukuran array sebelum dirubah
         
@@ -54,16 +58,29 @@ public class Driver {
         System.out.println();
         
         //untuk menentukan panjang Array yang dipilih
-        a.setSize(2);
+        a.setSize(6);
         System.out.println("Setelah Dilakukan SetSize adalah\t :"+a.toString());
+        System.out.println();
         
+        System.out.println("\t\tSoal Nomor 9");
+        a.removeRange(1, 2);
+        System.out.println("Panjang array : " +a.element.length);
+        System.out.println("Setelah diremove range : " +a.toString());
+        System.out.println();
+        
+        System.out.println("\t\tSoal nomor 12");
+        System.out.println("Panajang array : " +a.size);
+        System.out.println("Panjang elemen : " +a.element.length);
+        System.out.println("Data dipanggil di variabel x : " +a.toString());
+        System.out.println("Data dipanggil di variabel y : " +a.clone(y));
+        
+        System.out.println();
         System.out.println("\t\t*Soal nomor 8*");
         //Untuk Menghapus semua Isi Array yang ada 
         System.out.println();
         a.clear();
         System.out.println("Isi array setelah clear \t:"+a.toString());
         
-        
-            }
         }
+    }
 }
